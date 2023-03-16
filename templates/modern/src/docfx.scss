@@ -1,0 +1,95 @@
+/**
+ * Copyright (c) Microsoft Corporation. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+*/
+
+$enable-grid-classes: false;
+$enable-important-utilities: false;
+
+$container-max-widths: (
+  xxl: 1768px
+) !default;
+
+@import "bootstrap/scss/bootstrap.scss";
+
+@import "highlight.js/scss/github.scss";
+
+@include color-mode(dark) {
+  @import "highlight.js/scss/github-dark.scss";
+}
+
+@import "highlight.scss";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.divider {
+  margin: 0 5px;
+  color: #ccc;
+}
+
+article {
+  span.small.pull-right {
+    float: right;
+  }
+  
+  section {
+    margin-left: 1em;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.codewrapper {
+  position: relative;
+}
+
+.sample-response .response-content {
+  max-height: 200px;
+}
+
+@media (max-width: 768px) {
+  #mobile-indicator {
+    display: block;
+  }
+
+  .mobile-hide {
+    display: none;
+  }
+
+  /* workaround for #hashtag url is no longer needed */
+  h1::before,
+  h2::before,
+  h3::before,
+  h4::before {
+    content: "";
+    display: none;
+  }
+}
+
+@mixin adjust-icon {
+  font-family: bootstrap-icons, sans-serif;
+  position: relative;
+  margin-right: 0.5em;
+  top: 0.2em;
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+@import "layout.scss";
+@import "nav.scss";
+@import "toc.scss";
+@import "markdown.scss";
+@import "search.scss";
+@import "dotnet.scss";

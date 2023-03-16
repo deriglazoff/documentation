@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) Microsoft Corporation. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+*/
+
+$expand-stub-width: 1.2rem;
+
+.toc {
+  min-width: 0;
+
+  ul {
+    flex-direction: column;
+    list-style-type: none;
+    padding-left: 0;
+    overflow-wrap: break-word;
+  }
+
+  li {
+    font-weight: normal;
+    margin: .4em 0;
+    padding-left: $expand-stub-width;
+    position: relative;
+  }
+
+  li > a {
+    display: inline;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      background: none;
+      text-decoration: underline;
+    }
+  }
+
+  li > ul {
+    display: none;
+  }
+
+  li.expanded > ul {
+    display: block;
+  }
+
+  .expand-stub::before {
+    display: inline-block;
+    width: $expand-stub-width;
+    cursor: pointer;
+    font-family: bootstrap-icons, sans-serif;
+    content: "\F285";
+    position: absolute;
+    margin-left: -$expand-stub-width;
+    transition: transform 0.35s ease;
+    transform-origin: .5em 50%;
+
+    @media (prefers-reduced-motion) {
+      & {
+        transition: none;
+      }
+    }
+  }
+
+  li.expanded > .expand-stub::before {
+    transform: rotate(90deg);
+  }
+}
