@@ -1,17 +1,18 @@
 {{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 <script type="text/javascript" src="{{_rel}}styles/docfx.vendor.js"></script>
 <script type="text/javascript" src="{{_rel}}styles/docfx.js"></script>
 <script type="text/javascript" src="{{_rel}}styles/main.js"></script>
-<!-- mermaid support -->
-<script type="text/javascript" 
-        src="https://unpkg.com/mermaid@9.1.3/dist/mermaid.min.js"
-        integrity="sha384-LnGjpNDrP4cp7MIk4CpRa/lPNclrf839ryYVFx1T1mPSV3RGAZ7nlBa7pqcyGY/K" 
-        crossorigin="anonymous"></script>
-<!-- Initialize Mermaid -->
-<script>
-    mermaid.initialize({
-        startOnLoad: false
-    });
-    mermaid.init(undefined, ".lang-mermaid");
+<!-- Initialize Mermaid https://mermaid.js.org/config/setup/modules/mermaidAPI.html-->
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/mermaid.esm.min.mjs';
+    const config = {
+	  theme: 'dark', 
+	  startOnLoad: false
+	  };
+    mermaid.initialize(config);
+	mermaid.run({
+	  querySelector: ".lang-mermaid"
+	});
 </script>
